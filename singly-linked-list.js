@@ -8,6 +8,7 @@ function LinkedList(headNode) {
   this.tailNode = null;
   this.listSize = headNode ? 1 : 0;
 
+  // Adds a new node containing value to the end of the list.
   this.append = function (value) {
     if (this.tailNode) {
       this.tailNode.nextNode = new Node(value);
@@ -19,6 +20,7 @@ function LinkedList(headNode) {
     this.listSize++;
   };
 
+  // Adds a new node containing value to the start of the list.
   this.prepend = function (value) {
     if (this.headNode) {
       const newHead = new Node(value);
@@ -31,18 +33,22 @@ function LinkedList(headNode) {
     this.listSize++;
   };
 
+  // Returns the total number of nodes in the list.
   this.size = function () {
     return this.listSize;
   };
 
+  // Returns the first node in the list.
   this.head = function () {
     return this.headNode;
   };
 
+  // Returns the last node in the list.
   this.tail = function () {
     return this.tailNode;
   };
 
+  // Returns the node at the given index.
   this.at = function (index) {
     if (index >= this.listSize || index < 0) {
       return null;
@@ -58,6 +64,7 @@ function LinkedList(headNode) {
     return current;
   };
 
+  // Removes the last element from the list.
   this.pop = function () {
     if (this.listSize === 1) {
       this.headNode = null;
@@ -77,10 +84,12 @@ function LinkedList(headNode) {
     }
   };
 
+  // Returns true if the passed in value is in the list and otherwise returns false.
   this.contains = function (value) {
     return this.find(value) ? true : false;
   };
 
+  // Returns the index of the node containing value, or null if not found.
   this.find = function (value) {
     let current = this.headNode;
     let index = 0;
@@ -97,6 +106,8 @@ function LinkedList(headNode) {
     return null;
   };
 
+  // Represents your LinkedList objects as strings, so you can print them out
+  // and preview them in the console. The format should be: ( value ) -> ( value ) -> ( value ) -> null
   this.toString = function () {
     let string = "";
     let current = this.headNode;
@@ -108,6 +119,7 @@ function LinkedList(headNode) {
     return string;
   };
 
+  // Inserts a new node with the provided value at the given index.
   this.insertAt = function (value, index) {
     if (index === 0) {
       this.prepend(value);
@@ -132,6 +144,7 @@ function LinkedList(headNode) {
     }
   };
 
+  // Removes the node at the given index.
   this.removeAt = function (index) {
     if (index === 0) {
       this.headNode = this.headNode.nextNode;
