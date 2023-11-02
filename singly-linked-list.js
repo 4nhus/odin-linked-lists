@@ -23,8 +23,7 @@ function LinkedList(headNode) {
   // Adds a new node containing value to the start of the list.
   this.prepend = function (value) {
     if (this.headNode) {
-      const newHead = new Node(value);
-      newHead.nextNode = this.headNode;
+      const newHead = new Node(value, this.headNode);
       this.headNode = newHead;
     } else {
       this.headNode = new Node(value);
@@ -136,8 +135,7 @@ function LinkedList(headNode) {
           previous = current;
           current = current.nextNode;
         } else {
-          previous.nextNode = new Node(value);
-          previous.nextNode.nextNode = current;
+          previous.nextNode = new Node(value, current);
           break;
         }
       }
